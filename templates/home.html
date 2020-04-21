@@ -6,10 +6,21 @@
 </head>
   <body>
     <div class="container">
-      <h1> Geocoder</h1>
-      <h3>Please upload your CSV file. The values containing addresses should be in a column named <em>address</em> or <em>Address</em></h3>
+      <h1>Free Geocoder</h1><br>
+      <h2>Hi! You can enter a single address via the box below or upload a list of addresses in a CSV file to obtain the coordinates!</h2><br>
+      <h3>The address must be valid.</h3>
+      <form action="{{url_for('submit')}}" method="POST">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address"><br><br>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="output">
+          {{coordinates|safe}}
+      </div>
+      <br><br>
+      <h3>The values containing addresses must be in a column named <em>address</em> or <em>Address</em>.</h3>
         <form action="{{url_for('submit_csv')}}" method="POST" enctype="multipart/form-data">
-          <input type="file" accept=".csv" name="file" />
+          <input type="file" accept=".csv" name="file" /><br><br>
           <button type="submit"> Submit </button>
         </form>
       <div class="output">

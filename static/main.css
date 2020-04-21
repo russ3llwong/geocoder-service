@@ -19,9 +19,15 @@ html, body {
   
   .container h1 {
     font-family: Arial, sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     color: #DDCCEE;
-    margin-top: 80px;
+    margin-top: 40px;
+  }
+
+  .container h2 {
+      font-family: Verdana, sans-serif;
+      font-size: 20px;
+      color: #DDCCEE;
   }
   
   .container button {

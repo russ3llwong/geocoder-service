@@ -9,6 +9,19 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route("/submit", methods=['POST'])
+def submit():
+
+    try:
+        gc = ArcGIS(scheme='http')
+        addr = request.form['address']
+        coordinates = gc.geocode(addr, exactly_one=True)[1]
+        return render_template("home.html", coordinates = coordinates)
+
+    except Exception as e:
+        return render_template("home.html", coordinates = "Invalid address")
+    
+
 @app.route('/submit-csv', methods=['POST'])
 def submit_csv():
     global filename # so download function can access
