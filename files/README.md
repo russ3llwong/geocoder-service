@@ -1,0 +1,1 @@
+This empty directory is necessary for the application to work as the generated csv files will be stored here.
